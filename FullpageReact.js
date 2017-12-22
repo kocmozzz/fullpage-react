@@ -1038,13 +1038,13 @@ function determineVerticalRoot() {
   }
 
   if (!agent) {
-    return document.body;
+    return typeof window !== 'undefined' ? document.body : null;
   }
 
   var browser = __WEBPACK_IMPORTED_MODULE_2__utils_index_js__["i" /* detectBrowser */](agent);
 
   if (!browser) {
-    return document.body;
+    return typeof window !== 'undefined' ? document.body : null;
   }
 
   var name = browser.name,
@@ -1060,11 +1060,11 @@ function determineVerticalRoot() {
   var docElementSet = new Set(['firefox', 'chrome']);
 
   if (docElementSet.has(name)) {
-    return document.documentElement;
+    return typeof window !== 'undefined' ? document.documentElement : null;
   }
 
   // safari, etc
-  return document.body;
+  return typeof window !== 'undefined' ? document.body : null;
 }
 /* harmony default export */ __webpack_exports__["a"] = (Fullpage);
 
